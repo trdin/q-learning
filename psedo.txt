@@ -1,0 +1,42 @@
+implemement  the q learning in jupyter notebook, use the bellmans equation to calculate new values in the learning step ,   also use epsilon greedy policy 
+pseudo code for the q learning function 
+
+PSEUDO CODE: 
+initialize q- table 
+for  ep in n_train_episodes:
+    set the values  of  epsilon
+    get  the state of environment S
+    for step in max steps:
+        set action A according  to  epsilon greedy policy 
+        complete action A and get na new state S' with a reward
+        calculate  a  new value Q(S,A) with the Bellman's equation
+         if action A leads into  a cancellation then
+            break
+        S=S'
+    end for
+end for
+return Q
+
+parameters of the q learning function:
+n_train_episodes - Število iteracij učenja
+lr - Stopnja učenja
+n_eval_episodes	- Število iteracij vrednotenja
+max_steps -	Maksimalno število korakov
+gamma -	Redukcijski faktor 𝛾
+min_epsilon	- minimal calue of epsilon
+max_epsilon - maksimal value of epsilon
+decay	Faktor v eksponentu 𝛿
+
+implement these funcitons : 
+inicializacija Q tabele
+epsilon greedy policy 
+učenje
+vrednotenje
+
+bellmans equation: 
+Q(S(t), a(t)) = Q(S(t), a(t)) + lr[ r(t+1) + gamma * max( Q(s(t+1), a)) -  Q(S(t), a(t)) ]
+max() - ocenjena optimalna naslenda vrednost 
+
+epsilon greedy policy:
+
+epsilon = epsilon(min) + (epsilon(max) - epsilon(min)) * e ^ (-decay*i)
